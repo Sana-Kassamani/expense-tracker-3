@@ -5,13 +5,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
-const EditTransactionForm = ({ setEditFlag }) => {
+const EditTransactionForm = ({ setEditFlag, editForm }) => {
   const [error, setError] = useState("");
   const [transactionForm, setTransactionForm] = useState({
-    type: "",
-    amount: "",
-    date: "",
-    notes: "",
+    type: editForm.type,
+    amount: editForm.amount,
+    date: editForm.date,
+    notes: editForm.notes,
   });
 
   return (
