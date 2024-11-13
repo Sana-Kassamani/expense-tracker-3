@@ -103,91 +103,46 @@ const TransactionForm = ({ setAddFlag, setEditFlag, edit }) => {
         />
       </div>
       {error && <span className="error-message"></span>}
-      {!edit && (
-        <button
-          id="submit"
-          onClick={async () => {
-            let id = JSON.parse(localStorage.userId);
-            if (
-              !transactionForm.type ||
-              !transactionForm.amount ||
-              !transactionForm.date ||
-              !transactionForm.notes
-            ) {
-              setError("Please fill out all fields.");
-              return;
-            }
-            const body = new FormData();
-            body.append("type", transactionForm.type);
-            body.append("amount", transactionForm.amount);
-            body.append("date", transactionForm.date);
-            body.append("notes", transactionForm.notes);
-            body.append("userId", id);
-            try {
-              const response = await axios(
-                "http://localhost/expense-tracker-3/server-side/createTransaction.php",
-                {
-                  method: "post",
-                  headers: { "Content-Type": "multipart/form-data" },
-                  data: body,
-                }
-              );
-              if (response.data.message === "Successfully added row") {
-                console.log("Added transaction");
-                setAddFlag(false);
+      <button
+        id="submit"
+        onClick={async () => {
+          let id = JSON.parse(localStorage.userId);
+          if (
+            !transactionForm.type ||
+            !transactionForm.amount ||
+            !transactionForm.date ||
+            !transactionForm.notes
+          ) {
+            setError("Please fill out all fields.");
+            return;
+          }
+          const body = new FormData();
+          body.append("type", transactionForm.type);
+          body.append("amount", transactionForm.amount);
+          body.append("date", transactionForm.date);
+          body.append("notes", transactionForm.notes);
+          body.append("userId", id);
+          try {
+            const response = await axios(
+              "http://localhost/expense-tracker-3/server-side/createTransaction.php",
+              {
+                method: "post",
+                headers: { "Content-Type": "multipart/form-data" },
+                data: body,
               }
-            } catch (error) {
-              console.log(error);
-              setError(error);
+            );
+            if (response.data.message === "Successfully added row") {
+              console.log("Added transaction");
+              setAddFlag(false);
             }
-          }}
-        >
-          Submit
-        </button>
-      )}
-      {edit && (
-        <button
-          id="save-changes"
-          className="save"
-          onClick={async () => {
-            let id = JSON.parse(localStorage.userId);
-            if (
-              !transactionForm.type ||
-              !transactionForm.amount ||
-              !transactionForm.date ||
-              !transactionForm.notes
-            ) {
-              setError("Please fill out all fields.");
-              return;
-            }
-            const body = new FormData();
-            body.append("type", transactionForm.type);
-            body.append("amount", transactionForm.amount);
-            body.append("date", transactionForm.date);
-            body.append("notes", transactionForm.notes);
-            body.append("userId", id);
-            try {
-              const response = await axios(
-                "http://localhost/expense-tracker-3/server-side/editTransaction.php",
-                {
-                  method: "post",
-                  headers: { "Content-Type": "multipart/form-data" },
-                  data: body,
-                }
-              );
-              if (response.data.message === "successful") {
-                console.log("editted transaction");
-                setEditFlag(false);
-              }
-            } catch (error) {
-              console.log(error);
-              setError(error);
-            }
-          }}
-        >
-          Save Changes
-        </button>
-      )}
+          } catch (error) {
+            console.log(error);
+            setError(error);
+          }
+        }}
+      >
+        Submit
+      </button>
     </div>
   );
 };
