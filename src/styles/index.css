@@ -1,0 +1,174 @@
+body {
+  background-color: #cdefec;
+}
+header {
+  height: 100px;
+  background-color: #325852;
+  color: #cdefec;
+  font-size: larger;
+  font-family: "PlayWright";
+  font-weight: bold;
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border: 2px solid #cdefec;
+  outline: #325058;
+  border-radius: 5px;
+}
+table {
+  color: #cdefec;
+  font-size: large;
+  width: 90vw;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 20px 0px;
+  background-color: #325852;
+}
+tr {
+  display: table-row;
+  height: 30px;
+}
+td {
+  height: 20px;
+}
+th {
+  font-weight: 600;
+  height: 50px;
+}
+
+.input-fields {
+  font-weight: bold;
+  padding: 10px;
+  width: 300px;
+  gap: 10px;
+  border: 2px solid rgb(5, 114, 74);
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  display: none;
+}
+.input-fields > div,
+.input-fields > div > div {
+  gap: 10px;
+}
+
+.filter-fields {
+  font-weight: bold;
+  gap: 20px;
+  flex-wrap: wrap;
+  border: 2px solid rgb(5, 114, 74);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.filter-fields > div,
+.filter-fields > div > div {
+  gap: 10px;
+}
+
+input {
+  background-color: #cdefec;
+  border: 1px solid rgb(5, 114, 74);
+  border-radius: 20px;
+  padding: 10px;
+  height: 35px;
+}
+button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(83, 201, 152);
+  color: rgb(8, 21, 16);
+  height: 35px;
+}
+.delete-btn,
+.edit-btn {
+  padding: 10px;
+  margin: 5px 10px;
+}
+.delete-btn {
+  background-color: rgb(189, 114, 114);
+  color: black;
+}
+.delete-btn:disabled {
+  background-color: rgb(75, 53, 53);
+}
+.delete-btn:hover {
+  background-color: rgba(189, 114, 114, 0.461);
+}
+.save {
+  display: none;
+}
+.display-values {
+  margin: 10px 0px;
+  padding: 10px;
+  font-family: "PlayWright";
+}
+.display-values > div {
+  width: 200px;
+  border: 2px solid #325852;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.div-img {
+  width: 20px;
+  height: 20px;
+}
+
+.add {
+  margin: 10px;
+}
+button:hover {
+  background-color: rgba(85, 220, 164, 0.409);
+}
+button:disabled {
+  background-color: rgb(51, 73, 64);
+}
+.ExpenseDiv {
+  color: rgb(124, 20, 20);
+}
+.IncomeDiv {
+  color: rgb(32, 85, 42);
+}
+.BudgetDiv {
+  color: rgb(38, 4, 91);
+}
+.error-message {
+  color: rgb(208, 39, 39);
+  padding: 10px;
+  opacity: 1;
+}
+.login,
+.signup {
+  margin: auto;
+  height: 100vh;
+  background-color: #cdefec;
+}
+.login > div,
+.signup > div {
+  gap: 20px;
+}
+
+.link {
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (max-width: 500px) {
+  table {
+    overflow-x: auto;
+  }
+  .display-values {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .above-table {
+    flex-direction: column;
+    margin: 0px 10px;
+  }
+}
